@@ -1,15 +1,19 @@
-import React from "react";
-import {bindActionCreators} from "redux";
+import React from 'react';
 import {connect} from "react-redux";
-import increase from "./actions/increase";
-import decrease from "./actions/decrease";
 
-import Button from "./Button"
 const Controls = (props) => {
+	let {dispatch} = props;
 	return (
 		<div className="controls">
-			<Button onClick={() => props.increase(props.counter)} value="+"/>
-			<Button onClick={() => props.decrease(props.counter)} value="-"/>
+			<button onClick={() => dispatch({type: 'INCREASE'})}>+</button>
+			<button onClick={() => dispatch({type: 'DECREASE'})}>-</button>
+			<input
+				type="number"
+				onChange={(e) => {
+					dispatch({type: 'SET_CURRENT_VALUE', value: e.target.value})
+				}}
+				placeholder="Enter number"
+			/>
 		</div>
 	)
 };
@@ -18,10 +22,4 @@ function mapStateToProps(state) {
 		counter: state.counter
 	})
 }
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators({
-		increase: increase,
-		decrease: decrease
-	}, dispatch)
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Controls);
+export default connect(mapStateToProps)(Controls);

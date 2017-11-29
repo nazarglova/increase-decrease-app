@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import ChangeCounter from "./change-counter";
+import Counter from "./counter";
 
 const allReducers = combineReducers({
-	counter: ChangeCounter
+	counter: Counter,
 });
 export default allReducers;

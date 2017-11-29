@@ -8,21 +8,16 @@ import Result from "./Result";
 import Controls from "./Controls";
 
 const store = createStore(mainStore);
-store.subscribe(() => {
-	console.log("subscribe currentValue: ", store.getState().counter.currentValue)
-});
 
-class IncDecApp extends React.Component {
-	render() {
-		return (
-			<div >
-				<h1>Supper App</h1>
-				<Result/>
-				<Controls/>
-			</div>
-		)
-	}
-}
+const IncDecApp = (props) => {
+	return (
+		<div className="inc-dec-app">
+			<h1>Supper App</h1>
+			<Result/>
+			<Controls/>
+		</div>
+	)
+};
 
 ReactDOM.render(
 	<Provider store={store}>

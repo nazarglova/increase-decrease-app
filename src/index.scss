@@ -1,10 +1,42 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 @mixin border() {
   border: 2px solid;
 }
 
+body {
+  margin: 0;
+}
+
 .result {
+  display: inline-block;
   padding: 10px;
   width: 100px;
   text-align: center;
   @include border
+}
+
+.inc-dec-app {
+  margin: 0;
+  padding: 10px 50px;
+  text-align: center;
+}
+
+button {
+  width: 40px;
+  margin-right: 5px;
+}
+input{
+  padding: 5px;
+}
+.controls {
+  padding: 5px;
+  height: 40px;
+  > * {
+	height: 100%;
+  }
 }
