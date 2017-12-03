@@ -1,23 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './assets/styles/index.css';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import mainStore from './reducers';
-import Result from "./Result";
-import Controls from "./Controls";
+import IncDecApp from './IncDecApp/';
 
 const store = createStore(mainStore);
-
-const IncDecApp = (props) => {
-	return (
-		<div className="inc-dec-app">
-			<h1>Supper App</h1>
-			<Result/>
-			<Controls/>
-		</div>
-	)
-};
 
 ReactDOM.render(
 	<Provider store={store}>

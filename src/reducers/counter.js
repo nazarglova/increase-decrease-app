@@ -1,19 +1,18 @@
 const defaultCounter = {
-	currentValue: 0
+	currentValue: 0,
+	step: 1,
 };
-
-export default function (state = defaultCounter, action) {
-	let newState = Object.assign({}, state);
+export default (state = defaultCounter, action) => {
 	switch (action.type) {
 		case "INCREASE":
-			newState.currentValue++;
-			return newState;
+			state.currentValue += state.step;
+			return Object.assign({}, state);
 		case "DECREASE":
-			newState.currentValue--;
-			return newState;
-		case "SET_CURRENT_VALUE":
-			newState.currentValue = (action.value) ? action.value : 0;
-			return newState;
+			state.currentValue -= state.step;
+			return Object.assign({}, state);
+		case "SET_STEP":
+			state.step = (action.value) ? parseInt(action.value, 10) : 1;
+			return Object.assign({}, state);
 		default:
 			return state;
 	}
