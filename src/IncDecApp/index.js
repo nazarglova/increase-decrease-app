@@ -7,16 +7,17 @@ import {increase, decrease, setStep} from "../actions/"
 
 
 const IncDecApp = (props) => {
+	let {currentValue, increase, decrease, setStep} = props;
 	return (
 		<div className="inc-dec-app">
 			<h1>Supper App</h1>
 			<Result
-				currentValue={props.currentValue}
+				currentValue={currentValue}
 			/>
 			<Controls
-				increase={props.increase}
-				decrease={props.decrease}
-				setStep={props.setStep}
+				increase={increase}
+				decrease={decrease}
+				setStep={setStep}
 			/>
 		</div>
 	)

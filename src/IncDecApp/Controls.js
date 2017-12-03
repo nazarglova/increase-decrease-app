@@ -1,13 +1,14 @@
 import React from 'react';
 
 const Controls = (props) => {
-	let handleChange=()=>{
-		props.setStep(this.input.value);
+	let {setStep, increase, decrease} = props;
+	let handleChange = () => {
+		setStep(this.input.value);
 	};
 	return (
 		<div className="controls">
-			<button onClick={props.increase}>+</button>
-			<button onClick={props.decrease}>-</button>
+			<button onClick={increase}>+</button>
+			<button onClick={decrease}>-</button>
 			<input
 				ref={(input) => this.input = input}
 				type="number"
